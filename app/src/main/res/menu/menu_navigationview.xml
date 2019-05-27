@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/menu_lateral_1"
+            android:icon="@drawable/alquiler"
+            android:title="Alquiler"/>
+        <item
+            android:id="@+id/navigation_subheader"
+            android:title="Listas">
+                <menu>
+                        <item
+                                android:id="@+id/menu_lateral_2"
+                                android:icon="@drawable/usuarios"
+                                android:title="Usuarios"/>
+                        <item
+                                android:id="@+id/menu_lateral_3"
+                                android:icon="@drawable/libros"
+                                android:title="Libros"/>
+                </menu>
+        </item>>
+</menu>
