@@ -3,16 +3,21 @@ package com.example.biblioapp.Fragmentos;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import com.example.biblioapp.Adaptadores.AdaptadorListaUsuarios;
+import com.example.biblioapp.AñadirUsuario;
+import com.example.biblioapp.MainActivity;
 import com.example.biblioapp.Pojo.Usuario;
 import com.example.biblioapp.R;
 import com.example.biblioapp.Servidor.BaseUrl;
@@ -43,32 +48,44 @@ public class FragmentoListaUsuarios extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        listaLV =view.findViewById(R.id.listaUsuarios);
-
-
-        AdaptadorListaUsuarios adapter = new AdaptadorListaUsuarios(getContext(),listaUsuario);
-        listaLV.setAdapter(adapter);
-        Log.i("onShow",listaUsuario.toString());
-        bibliotecaService = BaseUrl.getBiblioteca();
-
-        Call<List<Usuario>> lista = bibliotecaService.getUsuarios();
-        lista.enqueue(new Callback<List<Usuario>>() {
-            @Override
-            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
-                if(response.isSuccessful()){
-                    listaUsuario = response.body();
-                    Log.i("onShowOK",listaUsuario.toString());
-                    AdaptadorListaUsuarios adapter = new AdaptadorListaUsuarios(getContext(),listaUsuario);
-                    listaLV.setAdapter(adapter);
+        final MainActivity mainActivity = (MainActivity) getActivity();
+        if (mainActivity != null) {
+            FloatingActionButton fab = mainActivity.findViewById(R.id.fab);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    AñadirUsuario dialog = new AñadirUsuario();
+                    dialog.show(fragmentManager,"dialog_fragment");
                 }
-            }
+            });
 
-            @Override
-            public void onFailure(Call<List<Usuario>> call, Throwable t) {
-                Log.i("onShowFail",listaUsuario.toString());
-                Log.i("onShowFail",t.getMessage());
-            }
-        });
+            listaLV = view.findViewById(R.id.listaUsuarios);
+
+            AdaptadorListaUsuarios adapter = new AdaptadorListaUsuarios(getContext(), listaUsuario);
+            listaLV.setAdapter(adapter);
+            Log.i("onShow", listaUsuario.toString());
+            bibliotecaService = BaseUrl.getBiblioteca();
+
+            Call<List<Usuario>> lista = bibliotecaService.getUsuarios();
+            lista.enqueue(new Callback<List<Usuario>>() {
+                @Override
+                public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
+                    if (response.isSuccessful()) {
+                        listaUsuario = response.body();
+                        Log.i("onShowOK", listaUsuario.toString());
+                        AdaptadorListaUsuarios adapter = new AdaptadorListaUsuarios(getContext(), listaUsuario);
+                        listaLV.setAdapter(adapter);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<Usuario>> call, Throwable t) {
+                    Log.i("onShowFail", listaUsuario.toString());
+                    Log.i("onShowFail", t.getMessage());
+                }
+            });
+        }
     }
 }
 

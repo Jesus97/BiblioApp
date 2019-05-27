@@ -2,67 +2,73 @@ package com.example.biblioapp.Pojo;
 
 public class Libro {
 
-    int isbn;
+    String isbn;
     String titulo;
     String autor;
     String editorial;
     String genero;
-    int Nejemplares;
+    String Nejemplares;
 
-    public Libro(int isbn, String titulo, String autor, String editorial, String genero, int nejemplares) {
+    public Libro(String isbn, String titulo, String autor, String editorial, String genero, String nejemplares) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
         this.editorial = editorial;
         this.genero = genero;
-        Nejemplares = nejemplares;
+        this.Nejemplares = nejemplares;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public String setIsbn(String isbn) {
         this.isbn = isbn;
+        return isbn;
     }
 
     public String getTitulo() {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
+    public String setTitulo(String titulo) {
         this.titulo = titulo;
+        return titulo;
     }
 
     public String getAutor() {
         return autor;
     }
 
-    public void setAutor(String autor) {
+    public String setAutor(String autor) {
         this.autor = autor;
+        return autor;
     }
 
     public String getEditorial() {
         return editorial;
     }
 
-    public void setEditorial(String editorial) {
+    public String setEditorial(String editorial) {
         this.editorial = editorial;
+        return editorial;
     }
 
     public String getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public String setGenero(String genero) {
         this.genero = genero;
+        return genero;
     }
 
-    public int getNejemplares() {
+    public String getNejemplares() {
         return Nejemplares;
     }
 
-    public void setNejemplares(int nejemplares) {
+    public String setNejemplares(String nejemplares) {
         Nejemplares = nejemplares;
+        return nejemplares;
     }
 }

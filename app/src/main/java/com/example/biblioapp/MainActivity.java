@@ -1,6 +1,5 @@
 package com.example.biblioapp;
 
-import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -11,17 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.biblioapp.Fragmentos.FragmentoListaAlquiler;
 import com.example.biblioapp.Fragmentos.FragmentoListaLibros;
 import com.example.biblioapp.Fragmentos.FragmentoListaUsuarios;
-import com.example.biblioapp.Pojo.Usuario;
 import com.example.biblioapp.Servidor.BibliotecaService;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -36,15 +29,9 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fab= findViewById(R.id.fab);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AñadirUsuario dialog = new AñadirUsuario();
-                dialog.show(getSupportFragmentManager(),"dialog_fragment");
-            }
-        });
+
+        fab = findViewById(R.id.fab);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.layout_contenido,new FragmentoListaAlquiler()).commit();
