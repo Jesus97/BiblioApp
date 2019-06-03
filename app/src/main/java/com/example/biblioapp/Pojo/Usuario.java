@@ -21,6 +21,8 @@ public class Usuario{
     @Expose
     private String direccion;
 
+    public Usuario(){}
+
     public Usuario(String dni, String nombre, String apellidos, String telefono, String direccion) {
         this.dni = dni;
         this.nombre = nombre;
@@ -33,45 +35,51 @@ public class Usuario{
         return dni;
     }
 
-    public String setDni(String dni) {
+    public void setDni(String dni) {
         this.dni = dni;
-        return dni;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String setNombre(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
-        return nombre;
     }
 
     public String getApellidos() {
         return apellidos;
     }
 
-    public String setApellidos(String apellidos) {
+    public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
-        return apellidos;
     }
 
     public String getTelefono() {
         return telefono;
     }
 
-    public String setTelefono(String telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
-        return telefono;
     }
 
     public String getDireccion() {
         return direccion;
     }
 
-    public String setDireccion(String direccion) {
+    public void setDireccion(String direccion) {
         this.direccion = direccion;
-        return direccion;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", direccion='" + direccion + '\'' +
+                '}';
+    }
 }
+

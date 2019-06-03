@@ -1,13 +1,30 @@
 package com.example.biblioapp.Pojo;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Libro {
 
-    String isbn;
-    String titulo;
-    String autor;
-    String editorial;
-    String genero;
-    String Nejemplares;
+    @SerializedName("isbn")
+    @Expose
+    private String isbn;
+    @SerializedName("titulo")
+    @Expose
+    private String titulo;
+    @SerializedName("autor")
+    @Expose
+    private String autor;
+    @SerializedName("editorial")
+    @Expose
+    private String editorial;
+    @SerializedName("genero")
+    @Expose
+    private String genero;
+    @SerializedName("Nejemplares")
+    @Expose
+    private String Nejemplares;
+
+    public Libro() {}
 
     public Libro(String isbn, String titulo, String autor, String editorial, String genero, String nejemplares) {
         this.isbn = isbn;
@@ -15,60 +32,54 @@ public class Libro {
         this.autor = autor;
         this.editorial = editorial;
         this.genero = genero;
-        this.Nejemplares = nejemplares;
+        Nejemplares = nejemplares;
     }
 
     public String getIsbn() {
         return isbn;
     }
 
-    public String setIsbn(String isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
-        return isbn;
     }
 
     public String getTitulo() {
         return titulo;
     }
 
-    public String setTitulo(String titulo) {
+    public void setTitulo(String titulo) {
         this.titulo = titulo;
-        return titulo;
     }
 
     public String getAutor() {
         return autor;
     }
 
-    public String setAutor(String autor) {
+    public void setAutor(String autor) {
         this.autor = autor;
-        return autor;
     }
 
     public String getEditorial() {
         return editorial;
     }
 
-    public String setEditorial(String editorial) {
+    public void setEditorial(String editorial) {
         this.editorial = editorial;
-        return editorial;
     }
 
     public String getGenero() {
         return genero;
     }
 
-    public String setGenero(String genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
-        return genero;
     }
 
     public String getNejemplares() {
         return Nejemplares;
     }
 
-    public String setNejemplares(String nejemplares) {
+    public void setNejemplares(String nejemplares) {
         Nejemplares = nejemplares;
-        return nejemplares;
     }
 }

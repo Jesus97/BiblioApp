@@ -1,6 +1,5 @@
 package com.example.biblioapp;
 
-import android.content.Context;
 import android.support.v4.app.DialogFragment;
 
 import android.os.Bundle;
@@ -11,29 +10,32 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+
+
 import com.example.biblioapp.Pojo.Usuario;
+import com.example.biblioapp.Servidor.BaseUrl;
 import com.example.biblioapp.Servidor.BibliotecaService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AñadirUsuario extends DialogFragment{
+public class AñadirUsuario extends DialogFragment {
 
-    BibliotecaService bibliotecaService;
-    EditText dni,nombre,apellidos,telefono,direccion;
-    Button añadir,cancelar;
-    String dniU, nombreU, apellidosU,telefonoU, direccionU;
-    Usuario usuario = new Usuario(dniU,nombreU,apellidosU,telefonoU,direccionU);
 
-    public AñadirUsuario(){
+        BibliotecaService bibliotecaService;
+        EditText dni, nombre, apellidos, telefono, direccion;
+        Button añadir, cancelar;
+        Usuario usuario = new Usuario();
 
-    }
+public AñadirUsuario() {
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        }
 
-        View v = inflater.inflate(R.layout.anadir_usuario,container,false);
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.anadir_usuario, container, false);
 
         dni = v.findViewById(R.id.campo_dni);
         nombre = v.findViewById(R.id.campo_nombre);
@@ -43,42 +45,53 @@ public class AñadirUsuario extends DialogFragment{
         añadir = v.findViewById(R.id.botonAñadirUsuario);
         cancelar = v.findViewById(R.id.botonAtras);
 
-        dniU = usuario.setDni(dni.getText().toString());
-        nombreU = usuario.setNombre(nombre.getText().toString());
-        apellidosU = usuario.setApellidos(apellidos.getText().toString());
-        telefonoU = usuario.setTelefono(telefono.getText().toString());
-        direccionU = usuario.setDireccion(direccion.getText().toString());
+
+
+        bibliotecaService = BaseUrl.getBiblioteca();
 
         añadir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Call<Usuario> u = bibliotecaService.crearUsuario(usuario);
-                u.enqueue(new Callback<Usuario>() {
-                    @Override
-                    public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                        Log.i("onCreateOK",call.toString());
-                        Log.i("onCreateOK",response.message());
-                    }
+@Override
+public void onClick(View v) {
+        usuario.setDni(dni.getText().toString());
+        usuario.setNombre(nombre.getText().toString());
+        usuario.setApellidos(apellidos.getText().toString());
+        usuario.setTelefono(telefono.getText().toString());
+        usuario.setDireccion(direccion.getText().toString());
+        Log.i("USUARIO",""+usuario.toString());
+        crearUsuarioMetodo(usuario);
 
-                    @Override
-                    public void onFailure(Call<Usuario> call, Throwable t) {
-                        Log.i("onCreateFail",call.toString());
-                        Log.i("onCreateFail",t.getMessage());
-                    }
-                });
-                dismiss();
-            }
+        dismiss();
+        }
         });
 
         cancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
+@Override
+public void onClick(View v) {
+        dismiss();
+        }
         });
 
         return v;
-    }
+        }
 
-}
+public void crearUsuarioMetodo(Usuario usuario) {
+        bibliotecaService.crearUsuario(usuario).enqueue(new Callback<Usuario>() {
+@Override
+public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+
+        if (response.code()==201) {
+
+        }else{
+        Log.i("code",""+response.code());
+        }
+        }
+
+@Override
+public void onFailure(Call<Usuario> call, Throwable t) {
+        Log.i("onFAILCREATE", "" + t);
+        }
+        });
+        }
+        }
+
 

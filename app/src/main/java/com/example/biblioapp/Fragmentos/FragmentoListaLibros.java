@@ -5,17 +5,36 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.widget.ListView;
 import android.widget.Toast;
 
+
+import com.example.biblioapp.Adaptadores.AdaptadorListaLibros;
 import com.example.biblioapp.AñadirLibro;
 import com.example.biblioapp.MainActivity;
-import com.example.biblioapp.R;
 
+import com.example.biblioapp.Pojo.Libro;
+import com.example.biblioapp.R;
+import com.example.biblioapp.Servidor.BaseUrl;
+import com.example.biblioapp.Servidor.BibliotecaService;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FragmentoListaLibros extends Fragment {
+
+    ListView listaLV;
+    private BibliotecaService bibliotecaService;
+    List<Libro> listaLibro ;
 
     public FragmentoListaLibros() {
     }
@@ -31,7 +50,6 @@ public class FragmentoListaLibros extends Fragment {
 
         final MainActivity mainActivity = (MainActivity) getActivity();
         if (mainActivity != null) {
-
             FloatingActionButton fab = mainActivity.findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -42,6 +60,27 @@ public class FragmentoListaLibros extends Fragment {
                 }
             });
 
+            listaLV = view.findViewById(R.id.listaLibros);
+            bibliotecaService = BaseUrl.getBiblioteca();
+
+            Call<List<Libro>> lista = bibliotecaService.getLibros();
+
+            Log.i("onShow", lista.toString());
+            lista.enqueue(new Callback<List<Libro>>() {
+                @Override
+                public void onResponse(Call<List<Libro>> call, Response<List<Libro>> response) {
+                    if (response.isSuccessful()) {
+                        listaLibro = response.body();
+                        Log.i("onShowOK", listaLibro.toString());
+                        AdaptadorListaLibros adapter = new AdaptadorListaLibros(getContext(), listaLibro);
+                        listaLV.setAdapter(adapter);
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<Libro>> call, Throwable t) {
+                    Log.i("onShowFail", t.getMessage());
+                }
+            });
+        }
     }
-}
 }
