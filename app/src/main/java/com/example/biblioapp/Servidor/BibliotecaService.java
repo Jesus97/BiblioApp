@@ -8,6 +8,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -32,8 +33,8 @@ public interface BibliotecaService {
     @POST("alquiler/create.php")
     Call<Alquiler> crearAlquiler(@Body Alquiler alquiler);
 
-    @GET("usuario/read_one.php?dni=Idni")
-    Call<Usuario> getUsuario(@Path("Idni") String dni);
+    @DELETE("/usuario/delete.php")
+    Call<Usuario> borrarUsuario(Usuario usuario);
 
 
 }
