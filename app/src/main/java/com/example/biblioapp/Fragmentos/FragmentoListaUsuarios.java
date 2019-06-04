@@ -36,7 +36,7 @@ import retrofit2.Response;
 
 public class FragmentoListaUsuarios extends Fragment {
 
-    public static final String EXTRA_USUARIO = "EXTRA_USUARIO";
+    public static String EXTRA_USUARIO = "EXTRA_USUARIO";
     ListView listaLV;
     private BibliotecaService bibliotecaService;
     List<Usuario> listaUsuario ;
@@ -86,21 +86,19 @@ public class FragmentoListaUsuarios extends Fragment {
                     Log.i("onShowFail", t.getMessage());
                 }
             });
-
-            /*listaLV.setOnItemClickListener(new AdapterView.OnItemClickListener()
+            listaLV.setOnItemClickListener(new AdapterView.OnItemClickListener()
             {
                 @Override
                 public void onItemClick(AdapterView <?> adapterView, View view, int i, long l){
-                    Intent intent = new Intent(FragmentoListaUsuarios.class, DetalleUsuario.class);
-                    intent.putExtra("ALGO", (Serializable) listaUsuario.get(i));
+                    Intent intent = new Intent(FragmentoListaUsuarios.this.getActivity(), DetalleUsuario.class);
+                    intent.putExtra(EXTRA_USUARIO,listaUsuario.get(i));
                     startActivity(intent);
-                    }
-                    });*/
-
-
+                }
+            });
         }
     }
 }
+
 
 
 

@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AñadirLibro"></activity>
-        <activity android:name=".AñadirUsuario"></activity>
+        <activity android:name=".Detalles.DetalleLibro"></activity>
+        <activity android:name=".Detalles.DetalleUsuario"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

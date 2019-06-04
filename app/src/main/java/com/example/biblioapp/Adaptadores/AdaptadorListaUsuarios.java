@@ -51,19 +51,17 @@ public class AdaptadorListaUsuarios extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         Usuario usuario = (Usuario) getItem(position);
-        viewHolder.celdaNombre.setText(usuario.getNombre());
-        viewHolder.celdaApellido.setText(usuario.getApellidos());
+        viewHolder.celdaNombreCompleto.setText(usuario.getNombre()+" "+usuario.getApellidos());
 
         return view;
 
     }
     public static class ViewHolder{
 
-        TextView celdaNombre, celdaApellido;
+        TextView celdaNombreCompleto;
 
         public ViewHolder(View v){
-            celdaNombre=v.findViewById(R.id.nombre);
-            celdaApellido=v.findViewById(R.id.apellidos);
+            celdaNombreCompleto=v.findViewById(R.id.nombre);
         }
 
     }

@@ -1,4 +1,5 @@
 package com.example.biblioapp.Fragmentos;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,12 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 
 import com.example.biblioapp.Adaptadores.AdaptadorListaLibros;
 import com.example.biblioapp.AñadirLibro;
+import com.example.biblioapp.Detalles.DetalleLibro;
 import com.example.biblioapp.MainActivity;
 
 import com.example.biblioapp.Pojo.Libro;
@@ -32,6 +35,7 @@ import retrofit2.Response;
 
 public class FragmentoListaLibros extends Fragment {
 
+    public static String EXTRA_LIBRO = "EXTRA_LIBRO";
     ListView listaLV;
     private BibliotecaService bibliotecaService;
     List<Libro> listaLibro ;
@@ -79,6 +83,16 @@ public class FragmentoListaLibros extends Fragment {
                 @Override
                 public void onFailure(Call<List<Libro>> call, Throwable t) {
                     Log.i("onShowFail", t.getMessage());
+                }
+            });
+
+            listaLV.setOnItemClickListener(new AdapterView.OnItemClickListener()
+            {
+                @Override
+                public void onItemClick(AdapterView <?> adapterView, View view, int i, long l){
+                    Intent intent = new Intent(FragmentoListaLibros.this.getActivity(), DetalleLibro.class);
+                    intent.putExtra(EXTRA_LIBRO,listaLibro.get(i));
+                    startActivity(intent);
                 }
             });
         }

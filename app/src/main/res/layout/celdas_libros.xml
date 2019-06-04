@@ -8,21 +8,21 @@
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="2dp"
         android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/autor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="2dp"
         android:textSize="20dp" />
 
     <TextView
         android:id="@+id/editorial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="2dp"
         android:textSize="20dp" />
 
 </LinearLayout>

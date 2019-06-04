@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:text="DNI"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/detalleDni"
+        android:textSize="30dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:text="Nombre"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/detalleNombre"
+        android:textSize="30dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:text="Apellidos"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/detalleApellidos"
+        android:textSize="30dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:text="Telefono"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/detalleTelefono"
+        android:textSize="30dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:text="Direccion"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/detalleDireccion"
+        android:textSize="30dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/botonEliminarUsuario"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="ELIMINAR USUARIO"
+        android:textSize="20dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

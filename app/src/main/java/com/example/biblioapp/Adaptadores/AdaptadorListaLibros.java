@@ -21,7 +21,6 @@ public class AdaptadorListaLibros extends BaseAdapter {
         this.libro = libro;
     }
 
-
     @Override
     public int getCount() {
         return libro.size();
@@ -50,9 +49,9 @@ public class AdaptadorListaLibros extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         Libro libro = (Libro) getItem(position);
-        viewHolder.celdaTitulo.setText(libro.getTitulo());
-        viewHolder.celdaAutor.setText(libro.getAutor());
-        viewHolder.celdaEditorial.setText(libro.getEditorial());
+        viewHolder.celdaTitulo.setText("Titulo:"+" "+libro.getTitulo());
+        viewHolder.celdaAutor.setText("Autor:"+" "+libro.getAutor());
+        viewHolder.celdaEditorial.setText("Editorial:"+" "+libro.getEditorial());
 
         return view;
 
