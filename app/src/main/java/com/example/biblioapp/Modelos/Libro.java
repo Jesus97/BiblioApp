@@ -1,4 +1,4 @@
-package com.example.biblioapp.Pojo;
+package com.example.biblioapp.Modelos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -83,5 +83,17 @@ public class Libro implements Serializable {
 
     public void setNejemplares(String nejemplares) {
         Nejemplares = nejemplares;
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "isbn='" + isbn + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", editorial='" + editorial + '\'' +
+                ", genero='" + genero + '\'' +
+                ", Nejemplares='" + Nejemplares + '\'' +
+                '}';
     }
 }

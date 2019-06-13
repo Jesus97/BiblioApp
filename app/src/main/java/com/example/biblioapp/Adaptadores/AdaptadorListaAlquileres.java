@@ -5,23 +5,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.example.biblioapp.Pojo.Alquiler;
+import com.example.biblioapp.Modelos.VistaAlquiler;
 import com.example.biblioapp.R;
 
 import java.util.List;
 
-public class AdaptadorListaAlquiler extends BaseAdapter {
+public class AdaptadorListaAlquileres extends BaseAdapter {
 
     private Context context;
-    private List<Alquiler> alquiler;
-    public AdaptadorListaAlquiler(Context context, List<Alquiler> alquiler) {
+    private List<VistaAlquiler> alquiler;
+    public AdaptadorListaAlquileres(Context context, List<VistaAlquiler> alquiler) {
         this.context = context;
         this.alquiler = alquiler;
     }
-
 
     @Override
     public int getCount() {
@@ -37,7 +35,6 @@ public class AdaptadorListaAlquiler extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public View getView(int position, View view, ViewGroup parent) {
 
@@ -50,21 +47,22 @@ public class AdaptadorListaAlquiler extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        Alquiler alquiler = (Alquiler) getItem(position);
-        viewHolder.celdaDni.setText(alquiler.getDni());
-        viewHolder.celdaIsbn.setText(alquiler.getIsbn());
+        VistaAlquiler vistaAlquiler = (VistaAlquiler) getItem(position);
+        viewHolder.celdaUsuario.setText("USUARIO:"+" "+vistaAlquiler.getNombre()+" "+vistaAlquiler.getApellidos());
+        viewHolder.celdaLibro.setText("LIBRO:"+" "+vistaAlquiler.getTitulo());
 
         return view;
 
     }
     public static class ViewHolder{
 
-        TextView celdaDni,celdaIsbn;
+        TextView celdaUsuario,celdaLibro;
 
         public ViewHolder(View v){
-            celdaDni=v.findViewById(R.id.dni);
-            celdaIsbn=v.findViewById(R.id.isbn);
+            celdaUsuario=v.findViewById(R.id.dni);
+            celdaLibro=v.findViewById(R.id.isbn);
         }
 
     }
 }
+

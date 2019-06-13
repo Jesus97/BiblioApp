@@ -7,7 +7,7 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:text="DNI"
         android:layout_gravity="center"/>
@@ -16,13 +16,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/detalleDni"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:text="Nombre"
         android:layout_gravity="center"/>
@@ -31,13 +31,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/detalleNombre"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:text="Apellidos"
         android:layout_gravity="center"/>
@@ -46,13 +46,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/detalleApellidos"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:text="Telefono"
         android:layout_gravity="center"/>
@@ -61,13 +61,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/detalleTelefono"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:text="Direccion"
         android:layout_gravity="center"/>
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/detalleDireccion"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 
     <Button

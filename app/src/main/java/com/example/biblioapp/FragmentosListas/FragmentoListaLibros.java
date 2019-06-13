@@ -1,4 +1,4 @@
-package com.example.biblioapp.Fragmentos;
+package com.example.biblioapp.FragmentosListas;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,20 +13,18 @@ import android.view.ViewGroup;
 
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 
 import com.example.biblioapp.Adaptadores.AdaptadorListaLibros;
-import com.example.biblioapp.AñadirLibro;
+import com.example.biblioapp.Añadir.AñadirLibro;
 import com.example.biblioapp.Detalles.DetalleLibro;
 import com.example.biblioapp.MainActivity;
 
-import com.example.biblioapp.Pojo.Libro;
+import com.example.biblioapp.Modelos.Libro;
 import com.example.biblioapp.R;
 import com.example.biblioapp.Servidor.BaseUrl;
 import com.example.biblioapp.Servidor.BibliotecaService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;

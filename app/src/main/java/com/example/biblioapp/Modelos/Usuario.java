@@ -1,4 +1,4 @@
-package com.example.biblioapp.Pojo;
+package com.example.biblioapp.Modelos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

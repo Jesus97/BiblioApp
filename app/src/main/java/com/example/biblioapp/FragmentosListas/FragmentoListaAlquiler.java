@@ -1,5 +1,6 @@
-package com.example.biblioapp.Fragmentos;
+package com.example.biblioapp.FragmentosListas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,13 +11,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.biblioapp.Adaptadores.AdaptadorListaAlquiler;
-import com.example.biblioapp.AñadirAlquiler;
+import com.example.biblioapp.Adaptadores.AdaptadorListaAlquileres;
+import com.example.biblioapp.Añadir.AñadirAlquiler;
+import com.example.biblioapp.Detalles.DetalleAlquiler;
 import com.example.biblioapp.MainActivity;
-import com.example.biblioapp.Pojo.Alquiler;
+import com.example.biblioapp.Modelos.VistaAlquiler;
 import com.example.biblioapp.R;
 import com.example.biblioapp.Servidor.BaseUrl;
 import com.example.biblioapp.Servidor.BibliotecaService;
@@ -30,21 +32,23 @@ import retrofit2.Response;
 
 public class FragmentoListaAlquiler extends Fragment {
 
+    public static String EXTRA_ALQUILER = "EXTRA_ALQUILER";
     ListView listaLV;
     private BibliotecaService bibliotecaService;
-    List<Alquiler> listaAlquiler ;
+    List<VistaAlquiler> listaAlquiler ;
 
     public FragmentoListaAlquiler() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragmento_alquiler, container, false);
+        return inflater.inflate(R.layout.fragmento_lista_alquiler, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         final MainActivity mainActivity = (MainActivity) getActivity();
         if (mainActivity != null) {
@@ -62,26 +66,40 @@ public class FragmentoListaAlquiler extends Fragment {
             listaLV = view.findViewById(R.id.listaAlquiler);
             bibliotecaService = BaseUrl.getBiblioteca();
 
-            Call<List<Alquiler>> lista = bibliotecaService.getAlquileres();
+            Call<List<VistaAlquiler>> lista = bibliotecaService.getVistaAlquiler();
 
             Log.i("onShow", lista.toString());
-            lista.enqueue(new Callback<List<Alquiler>>() {
+            lista.enqueue(new Callback<List<VistaAlquiler>>() {
                 @Override
-                public void onResponse(Call<List<Alquiler>> call, Response<List<Alquiler>> response) {
+                public void onResponse(Call<List<VistaAlquiler>> call, Response<List<VistaAlquiler>> response) {
                     if (response.isSuccessful()) {
                         listaAlquiler = response.body();
                         Log.i("onShowOK", listaAlquiler.toString());
-                        AdaptadorListaAlquiler adapter = new AdaptadorListaAlquiler(getContext(), listaAlquiler);
+                        AdaptadorListaAlquileres adapter = new AdaptadorListaAlquileres(getContext(), listaAlquiler);
                         listaLV.setAdapter(adapter);
                         Log.i("AQUI", adapter.toString());
                         Log.i("AQUI2", listaLV.toString());
                     }
                 }
                 @Override
-                public void onFailure(Call<List<Alquiler>> call, Throwable t) {
+                public void onFailure(Call<List<VistaAlquiler>> call, Throwable t) {
                     Log.i("onShowFail", t.getMessage());
                 }
             });
+
+            listaLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent = new Intent(FragmentoListaAlquiler.this.getActivity(), DetalleAlquiler.class);
+                    intent.putExtra(EXTRA_ALQUILER, listaAlquiler.get(i));
+                    startActivity(intent);
+                }
+            });
+
+        }
     }
 }
-}
+
+
+
+

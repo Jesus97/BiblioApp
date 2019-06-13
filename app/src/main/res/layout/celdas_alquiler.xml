@@ -8,14 +8,14 @@
         android:id="@+id/dni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/isbn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:textSize="20dp" />
 
 </LinearLayout>

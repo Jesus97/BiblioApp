@@ -1,4 +1,4 @@
-package com.example.biblioapp;
+package com.example.biblioapp.Añadir;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.biblioapp.Pojo.Libro;
-import com.example.biblioapp.Pojo.Usuario;
+import com.example.biblioapp.Modelos.Libro;
+import com.example.biblioapp.R;
 import com.example.biblioapp.Servidor.BaseUrl;
 import com.example.biblioapp.Servidor.BibliotecaService;
 

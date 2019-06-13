@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/layout_contenido">
+    android:id="@+id/layout_contenido"
+    >
 
     <android.support.design.widget.FloatingActionButton
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:id="@+id/fab"
+        android:src="@drawable/add"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_margin="20dp"

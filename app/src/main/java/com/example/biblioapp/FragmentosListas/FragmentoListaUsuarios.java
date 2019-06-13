@@ -1,4 +1,4 @@
-package com.example.biblioapp.Fragmentos;
+package com.example.biblioapp.FragmentosListas;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,20 +14,17 @@ import android.view.ViewGroup;
 
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 
 import com.example.biblioapp.Adaptadores.AdaptadorListaUsuarios;
-import com.example.biblioapp.AñadirUsuario;
+import com.example.biblioapp.Añadir.AñadirUsuario;
 import com.example.biblioapp.Detalles.DetalleUsuario;
 import com.example.biblioapp.MainActivity;
-import com.example.biblioapp.Pojo.Usuario;
+import com.example.biblioapp.Modelos.Usuario;
 import com.example.biblioapp.R;
 import com.example.biblioapp.Servidor.BaseUrl;
 import com.example.biblioapp.Servidor.BibliotecaService;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;

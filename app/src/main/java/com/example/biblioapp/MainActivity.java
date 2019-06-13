@@ -6,18 +6,16 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 
 
-import com.example.biblioapp.Fragmentos.FragmentoListaAlquiler;
-import com.example.biblioapp.Fragmentos.FragmentoListaLibros;
-import com.example.biblioapp.Fragmentos.FragmentoListaUsuarios;
-import com.example.biblioapp.Servidor.BibliotecaService;
+import com.example.biblioapp.Añadir.AñadirAlquiler;
+import com.example.biblioapp.FragmentosListas.FragmentoListaAlquiler;
+import com.example.biblioapp.FragmentosListas.FragmentoListaLibros;
+import com.example.biblioapp.FragmentosListas.FragmentoListaUsuarios;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -79,13 +77,20 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.e("ESCANER","Contenido del scan");
-
-        IntentResult escanerDNI = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        resultado = escanerDNI.getContents().toString();
-        Log.e("ESCANERDNI",""+escanerDNI.getContents());
-        Log.e("ESCANERDNI",""+escanerDNI.toString());
-
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment dialogo = fm.findFragmentByTag("dialog_fragment");
+        IntentResult escaner = IntentIntegrator.parseActivityResult(resultCode, data);
+        if (escaner!= null) {
+            resultado = escaner.getContents();
+            if (dialogo != null) {
+                if (requestCode == 1) {
+                    ((AñadirAlquiler) dialogo).recogerResultadoDNI(resultado);
+                }
+                if (requestCode == 2) {
+                    ((AñadirAlquiler) dialogo).recogerResultadoISBN(resultado);
+                }
+            }
+        }
         super.onActivityResult(requestCode, resultCode, data);
     }
 

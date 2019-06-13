@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.biblioapp.Pojo.Usuario;
+import com.example.biblioapp.Modelos.Usuario;
 import com.example.biblioapp.R;
 
 import java.util.List;

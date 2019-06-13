@@ -1,9 +1,11 @@
-package com.example.biblioapp.Pojo;
+package com.example.biblioapp.Modelos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Alquiler {
+import java.io.Serializable;
+
+public class Alquiler implements Serializable {
 
     @SerializedName("dni")
     @Expose

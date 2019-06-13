@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.biblioapp.Pojo.Libro;
+import com.example.biblioapp.Modelos.Libro;
 import com.example.biblioapp.R;
 
 import java.util.List;

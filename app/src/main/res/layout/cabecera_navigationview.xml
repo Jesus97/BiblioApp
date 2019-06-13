@@ -8,11 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:src="@drawable/ic_launcher_background"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop">
+    </ImageView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hola"
-        android:layout_gravity="bottom"/>
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center|top"
+        android:src="@drawable/biblio"
+        android:layout_marginTop="10dp"/>
 </FrameLayout>

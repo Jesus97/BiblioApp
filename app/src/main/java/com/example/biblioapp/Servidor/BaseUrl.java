@@ -8,6 +8,6 @@ public class BaseUrl {
 
     public static BibliotecaService getBiblioteca() {
 
-        return BaseRetrofit.getBiblioteca(BASE_URL).create(BibliotecaService.class);
+        return BaseRetrofit.getBibliotecaRetrofit(BASE_URL).create(BibliotecaService.class);
     }
 }

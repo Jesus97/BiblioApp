@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
         private static Retrofit retrofit = null;
 
-        public static Retrofit getBiblioteca(String baseUrl) {
+        public static Retrofit getBibliotecaRetrofit(String baseUrl) {
             if (retrofit==null) {
                 retrofit = new Retrofit.Builder()
                         .baseUrl(baseUrl)

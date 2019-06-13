@@ -7,7 +7,7 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:text="ISBN"
         android:layout_gravity="center"/>
@@ -16,13 +16,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/detalleIsbn"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:text="Titulo"
         android:layout_gravity="center"/>
@@ -31,13 +31,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/detalleTitulo"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:text="Autor"
         android:layout_gravity="center"/>
@@ -46,13 +46,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/detalleAutor"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:text="Editorial"
         android:layout_gravity="center"/>
@@ -61,13 +61,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/detalleEditorial"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:text="Genero"
         android:layout_gravity="center"/>
@@ -76,22 +76,30 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/detalleGenero"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
-        android:text="Numero de Ejemplares"
+        android:text="Nº Ejemplares"
         android:layout_gravity="center"/>
 
-    <TextView
+    <EditText
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:id="@+id/detalleNejemplares"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/botonModificarEjemplares"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:text="MODIFICAR EJEMPLARES"/>
 
 </LinearLayout>

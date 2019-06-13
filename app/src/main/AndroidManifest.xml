@@ -3,6 +3,8 @@
     package="com.example.biblioapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
 
     <application
         android:allowBackup="true"
@@ -11,9 +13,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Detalles.DetalleLibro"></activity>
-        <activity android:name=".Detalles.DetalleUsuario"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Detalles.DetalleLibro"
+            android:screenOrientation="portrait"
+            android:label="Detalle del Libro">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Detalles.DetalleLibro" />
+        </activity>
+        <activity android:name=".Detalles.DetalleUsuario"
+            android:screenOrientation="portrait"
+            android:label="Detalle del Usuario">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Detalles.DetalleUsuario" />
+        </activity>
+        <activity android:name=".Detalles.DetalleAlquiler"
+            android:screenOrientation="portrait"
+            android:label="Detalle del Alquiler">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Detalles.DetalleAlquiler" />
+        </activity>
+
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:label="Alquiler"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
