@@ -64,7 +64,7 @@ public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bun
                         IntentIntegrator escanerDNI = new IntentIntegrator(getActivity());
                         escanerDNI.setRequestCode(1);
                         escanerDNI.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-                        escanerDNI.setPrompt("ESCANEAR DNI USUARIO");
+                        escanerDNI.setPrompt("ESCANEAR CODIGO CARNET");
                         escanerDNI.initiateScan();
 
                 }
